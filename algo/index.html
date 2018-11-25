@@ -1,0 +1,119 @@
+<!--
+Zeeshan, Gawshan, Vipneet
+Alogrythm assignment 
+ICS4U1
+A.Krnic
+SDSS School grid With A-Star 
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mazer Solver</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="sheet.css">
+	<script src="assets/p5.js"></script>
+</head>
+<body>
+	<h1>A*</h1>
+	<h2>A Path Finding Algorithm</h2>
+	<h4>By: Zeeshan, Gawshan, Vipneet</h4>
+	<a href="https://en.wikipedia.org/wiki/List_of_algorithms#Graph_algorithms">Wiki link</a>
+	<h2>What is A* ?</h2>
+	<p>
+		A* is a pathfinding algorithm. To find an efficient path between two nodes. A* is similar/an improvment to Dijkstra algorithm, but with a few key differneces. The main one being A* takes into account the direction of the end node. This prevents the Algorithm from searching routes that are going in the opposite direction of the end node. This was a problem in Dijkstra which would check every posible route, A* first only check routes that have the lowest "cost" it does this with a heuristic function which can be written as 
+		<blockquote cite="https://en.wikipedia.org/wiki/A*_search_algorithm">
+			f(n) = g(n) + h(n)
+		</blockquote>
+		where n is the last/end node, g(n) is the cost of the path from the start, and h(n) is the heuristic or the cheapest estimated cost. the examples below show the difference between A* and Dijkstra's  
+	</p>
+	<label>A*</label>
+	<img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Astar_progress_animation.gif">
+	<label>Dijkstra</label>
+	<img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Dijkstras_progress_animation.gif">
+	<p>one area that A* is commonly used for trains and railways to help conductors find the most best route from one loction to another, A* is also used in heavily populated maps that contain alot of nodes the image is an example of A* in action</p>
+	<img src="https://upload.wikimedia.org/wikipedia/commons/6/60/A%2A_Search_Example_on_North_American_Freight_Train_Network.gif">
+
+	<h2>IPO</h2>
+	<table style="border: black 2px ridge; padding: 5px; position: absolute;left: 50%;">
+		<tr>
+			<thead>
+				<th>Input</th>
+				<th>Proccessing</th>
+				<th>Output</th>
+			</thead>	
+		</tr>
+		<tr>
+			<td>starting node</td>
+			<td>lowest cost from nodes next <br>to current starting node</td>
+			<td>path</td>
+		</tr>
+		<tr>
+			<td>ending node</td>
+			<td>fastest path to end node from start</td>
+		</tr>
+		<tr>
+			<td></td>
+		</tr>
+	</table>
+	<br>
+	<br>
+	<h2>Pseudocode</h2>
+	<pre>
+		start A* star;
+		var checkedNodes = [];
+		var unCheckedNodes =[]; 
+		unCheckedNodes[0] = FirstNode;
+		map = [][]; 
+
+		for x = 0; x < map.length; x++
+			for y = 0; y < map.length; y++
+				map[x][y].g = 0;
+				map[x][y].f = huristic_cost;
+
+		while unCheckedNodes != 0; 
+			var current = uncheckedNodes[0];
+			if current == goal
+				return path; 
+
+			unCheckedNodes.remove(current);
+			checkedNodes.add(current); 
+
+			var neighbor = nodes next to current
+
+			if (neighbor not in unCheckedNodes)
+				unCheckedNodes.add(neighbor);
+			
+			var tent-g-score; 
+
+			tent-g-score = current.g + distance(current to end);
+
+			return fail; 
+	</pre>
+	<br>
+	<h2>Flowchart</h2>
+	<img src="A_ - Page 1.png" width="700" height="500">
+	<br>
+	<h2>Source Code</h2>
+	<a href="source.txt">source code</a>
+	<br>
+	<hr>
+	<form action="schoolMap.php" method="post">
+		<h1>Mazer  Solver</h1>
+		<p>below enter the starting node and end node, and the program will generate a random maze and will try to solve it using A* (note that this implementation of A8 does not allow for diagonal movement)</p>
+		<h3>Starting Node</h3>
+		<label>Column:</label>
+		<input type="number" name="startC" value="0" min="0" max="34">
+		<label>Row:</label>
+		<input type="number" name="startR" value="0" min="0" max="34">
+		<br>
+		<hr>
+		<br>
+		<h3>Ending Node</h3>
+		<label>Column:</label>
+		<input type="number" name="endC" value="34" min="0" max="34">
+		<label>Row:</label>
+		<input type="number" name="endR" value="34" min="0" max="34">
+		<input type="submit">
+	</form>
+</body>
+</html>

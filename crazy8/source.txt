@@ -1,0 +1,565 @@
+/*******************PLAYER**************************/
+/**
+ * 
+ */
+package crazy8v2;
+
+
+/**
+ * @author Zeeshan
+ *
+ */
+public class player {
+	/*******************
+		encapsulation 
+	 *******************/
+	
+	private String name = null; //initializing name state
+	hand hand = new hand(); //initializing the hand state
+	
+	public player(String name) {// Constructor 
+		// TODO Auto-generated constructor stub
+		this.name = name;//sets name state
+	}
+	
+	String getName(){
+		return this.name;
+	}//above access method for name
+	
+	void sortHand(String method){
+		if(method.equals("value")){
+			boolean flag = true; 
+			//this is the passes loop which goes through the entire array 
+			for (int i = 0; i < this.hand.size()-1; i++) {
+				//sets the flag to false every pass
+				flag = false; 
+				//this is to compare the elements of the array it goes down every pass because the largest number gets bubbled to the top therefore you don't need to check it again
+				for (int j = 0; j < this.hand.size()-(1+i); j++) {
+					if(((card) this.hand.get(j)).getValue() > ((card) this.hand.get(j+1)).getValue()){
+						flag = true; //if a swap happens then flag is true because saps are needed 
+						card temp = (card) this.hand.get(j+1);
+						this.hand.set( j+1, this.hand.get(j));
+						this.hand.set(j, temp);
+						/*swaps elements*/
+					}
+				}
+				if(!flag){//if no swaps where done then you can end the loop 
+					break; 
+				}
+			}
+		}else{
+			boolean flag = true; 
+			//this is the passes loop which goes through the entire array 
+			for (int i = 0; i < this.hand.size()-1; i++) {
+				//sets the flag to false every pass
+				flag = false; 
+				//this is to compare the elements of the array it goes down every pass because the largest number gets bubbled to the top therefore you don't need to check it again
+				for (int j = 0; j < this.hand.size()-(1+i); j++) {
+					if(((card) this.hand.get(j)).getSuit().compareToIgnoreCase(((card) this.hand.get(j+1)).getSuit()) > 0){
+						flag = true; //if a swap happens then flag is true because saps are needed 
+						card temp = (card) this.hand.get(j+1);
+						this.hand.set( j+1, this.hand.get(j));
+						this.hand.set(j, temp);
+						/*swaps elements*/
+					}
+				}
+				if(!flag){//if no swaps where done then you can end the loop 
+					break; 
+				}
+			}
+		}
+	}//above is to sort hand by value or by suit
+	
+	boolean hasCard(String suit) {
+		int id = -1;
+		boolean exists = false;
+		for (int i = 0; i < this.hand.size(); i++)
+		{
+			if(((card) this.hand.get(i)).getSuit().equals(suit))
+			{
+				id = i;
+				exists = true;
+			}
+		}
+		
+		if (exists)
+			return true;
+		else
+			return false;
+	}//method to check if hand contains card of suit 
+	
+	private int hasCard(int val, String suit){
+		int id = -1;
+		boolean exists = false; 
+		for (int i = 0; i < this.hand.size(); i++) {
+			if(((card) this.hand.get(i)).getSuit().equals(suit) && ((card) this.hand.get(i)).getValue() == val){
+				id = i; 
+				exists = true;
+			}
+		}
+		if(exists){
+			return id;
+		}else{
+			return id; 
+		}
+	}//overloaded method to check if hand has specific card 
+	
+	boolean hasCard(int value) {
+		int id = -1;
+		boolean exists = false;
+		for (int i = 0; i < this.hand.size(); i++)
+		{
+			if(((card) this.hand.get(i)).getValue() == value)
+			{
+				id = i;
+				exists = true;
+			}
+		}
+		
+		if (exists)
+			return true;
+		else
+			return false;
+	}//method to check if hand contains card of value 
+	
+	card playCard(int val, String suit){
+		int exists = hasCard(val, suit);
+		if(exists != -1){
+			card card = (crazy8v2.card) this.hand.get(exists);
+			this.hand.remove(exists);
+			return card; 
+		}else{
+			return null; 
+		}
+	}//method to play a card 
+	
+	void showHand(){
+		 for(int i = 0; i < this.hand.size(); i++){
+			 System.out.print(((card) this.hand.get(i)).printCard("f") + "\n");
+		 } 
+	}// method to show cards in hand
+	
+}
+
+/******************PILE****************************/
+/**
+ * 
+ */
+package crazy8v2;
+
+/**
+ * @author Zeeshan
+ *
+ */
+/*******************
+inheritance 
+*******************/
+public class pile extends deck {
+	/*******************
+		encapsulation 
+	 *******************/
+	private card top = null; //initializing card reference for the top card
+	/**
+	 * 
+	 */
+	/*******************
+		encapsulation 
+	 *******************/
+	public pile() {//Constructor 
+		// TODO Auto-generated constructor stub
+		super();
+	}
+	
+	public pile(deck deck){//overloaded Constructor 
+		
+	}
+	
+	void topCard(deck deck){ //adds the top card of a deck to the top card of pile
+		this.top = deck.deal(); 
+	}
+	
+	void showTopCard(card card) { //displays the top card 
+		card = getTop();
+		System.out.println(card.printCard("f"));
+		System.out.println(card.getValue() + " of " + card.getSuit());
+	}
+	
+	card getTop() {//gets the top card 
+		return this.top;
+	}
+	
+	void changeTop() { // access method for the top state
+		/*******************
+			polymorphism
+		*******************/
+		this.top = (card) this.get(0);
+	}
+	
+}
+
+/*******************HAND***************************/
+/**
+ * 
+ */
+package crazy8v2;
+
+/**
+ * @author Zeeshan
+ *
+ */
+/*******************
+inheritance 
+*******************/
+public class hand extends deck {
+
+	/**
+	 * 
+	 */
+	/*******************
+		encapsulation 
+	 *******************/
+	public hand() {//Constructor 
+		// TODO Auto-generated constructor stub
+		super();//calls super
+	}
+
+	/**
+	 * @param deck
+	 */
+	public hand(crazy8v2.deck deck) { //overloaded Constructor 
+		super(deck);// calls super
+		// TODO Auto-generated constructor stub
+	}
+	
+	void addHand(card card){
+		this.add(card);
+	}//added to hand
+}
+
+
+/*****************GAME*****************************/
+/**
+ * 
+ */
+package crazy8v2; //package name
+import java.util.*; //importing java-util 
+import java.io.*; //importing java-io
+/**
+ * @author Zeeshan
+ *
+ */
+public class game {
+	static Scanner scan = new Scanner(System.in); //initializing scanner object
+	static player player1 = null; //initializing player reference for first player
+	static player player2 = null; //initializing player reference for second player
+	static deck main = new deck(); //initializing the main game deck
+	static pile pile = new pile(main); //initializing the pile with the main deck
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			title(); //runs the title function to display the title
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			menu(); //runs the menu
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+	}
+	
+	static void title() throws Throwable{
+		BufferedReader in = new BufferedReader(new FileReader("title.txt")); //initializing the bufferedReader object with the title.txt
+		String line; // initializing string pointer
+		while((line = in.readLine()) != null) //while the red line isn't null
+		{
+		    System.out.println(line); //output the current line
+		}
+		in.close(); //close the reader
+	}
+	
+	static void menu() throws Throwable{
+		System.out.println("\n"); //outs a line break
+		Thread.sleep(350);// add a pause for effect
+		System.out.println("This is a 2 player version of Crazy 8's.\n");//words
+		Thread.sleep(350);// add a pause for effect
+		System.out.println("You start off with 8 cards in your hand and the goal");//words
+		Thread.sleep(350);// add a pause for effect
+		System.out.println("is to get rid of all of the cards from your hand.");//words
+		Thread.sleep(350);// add a pause for effect
+		System.out.println("To begin, there will be one card taken from te top of the deck and put into the pile.");//words
+		Thread.sleep(350);// add a pause for effect
+		System.out.println("The first player will choose a card from their hand that matches the suit of the top card in the pile.");//words
+		Thread.sleep(350);// add a pause for effect
+		System.out.println("After matching the first card, you can place additional cards on top if they match the value of the first card places down.");//words
+		Thread.sleep(350);// add a pause for effect
+		System.out.println("If you cannot match any cards, you pick one up from the deck and play continues to the other player.");//words
+		Thread.sleep(350);// add a pause for effect
+		System.out.println("The game continues like this until one of the players is left with no cards.");//words
+		System.out.print("\n\n\n\n");// outs line break
+		System.out.println("Enter 'start' to play");//words
+		String in = scan.nextLine();//gets the user input
+		
+		if(in.equalsIgnoreCase("start")){ //checks for what the input was
+			init(); //starts the initial game
+		}else{
+			menu(); //restarts the menu
+		}
+	}
+	
+	static void init(){
+		System.out.println("Enter Player 1 name"); //asks for players username
+		String name = scan.nextLine(); //gets username
+		if(name.equalsIgnoreCase(" ")|| name == null){
+			System.out.println("name wasn't entered so name was set to default");
+			player1 = new player("player1");
+			//above makes sure that the user name isn't blank
+		}else{
+			player1 = new player(name);
+			// creates a player object with given name
+		}
+		System.out.println("Enter Player 2 name");//asks for player Object
+		name = scan.nextLine();// gets username
+		if(name.equalsIgnoreCase(" ")|| name == null){
+			System.out.println("name wasn't entered so name was set to default");
+			player2 = new player("player2");
+			//above makes sure that the user name isn't blank
+		}else{
+			player2 = new player(name);
+			// creates a player object with given name
+		}
+		main.fillDeck();//fills the deck with all 52 cards
+		main.shuffle();//shuffles the deck
+		gp1(); //runs gp1 (Game Part 1) 
+	}
+	
+	static void gp1(){
+		for(int i = 0; i < 8; i++){
+			player1.hand.addHand(main.deal());
+			System.out.println(player1.getName() + " has received a card");
+			player2.hand.addHand(main.deal());
+			System.out.println(player2.getName() + " has received a card");
+		}
+		//the above fills the players hand with cards 
+		
+		pile.topCard(main);//reveals the top card and puts it in the pile
+		turn(player1, false); //runs the turn code (player1 starts)
+	}
+	
+	private static player turnCheck(player player) {
+		if (player.getName().equalsIgnoreCase(player1.getName())) //check if the current turn is player 1
+		{
+			if (player.hand.size() == 0)//check is player has won
+			{
+				System.out.println(player.getName() + " WINS!!!");//player wins
+				return null;
+			}
+			else
+			{
+				return player2; //returns player 2 object
+			}
+		}
+		else if (player.getName().equalsIgnoreCase(player2.getName()))//check if the current turn is player 2
+		{
+			if (player.hand.size() == 0)//check is player has won
+			{
+				System.out.println(player.getName() + " WINS!!!");//player wins
+				return null;
+			}
+			else
+			{
+				return player1;//returns player 1 object
+			}
+		}
+		return player; //return the given player as a base case
+	}
+	
+	static void turn(player player , boolean draw){ //runs for each players turn
+		pile.showTopCard(pile.getTop());//displays the the top
+		System.out.println("Would you like to sort your hand by value or suit or no sort " + player.getName() + "?");
+		String sort = scan.nextLine();
+		if (sort.equalsIgnoreCase("value"))
+		{
+			player.sortHand("value");
+		}
+		else if (sort.equalsIgnoreCase("suit"))
+		{
+			player.sortHand("");
+		}
+		//the above asks then sorts the hand in the users preferred method
+		System.out.println("Would you like to see your hand " + player.getName() + "? (y or n)");
+		if (scan.nextLine().equalsIgnoreCase("y"))
+		{
+			player.showHand();
+		}
+		//asks then shows the users hand or doesn't
+		if (player.hasCard(pile.getTop().getSuit()) == false) //checks if users has matching suit
+		{
+			if(!draw) {//checks if they have drawn already
+				card addedCard = main.deal();
+				System.out.println("You don't have a matching suit, you must draw a card.");
+				player.hand.addHand(addedCard);
+				addedCard.printCard("f");
+				System.out.println("You drew a " + addedCard.getValue() + " of " + addedCard.getSuit() + "\n\n");
+				//draws and adds a card for the player
+			}
+		}
+		else 
+		{
+			if (player.hasCard(pile.getTop().getSuit()) == true || player.hasCard(pile.getTop().getValue()) == true) {
+			System.out.println("Would you like to play a card (y or n)?");
+			if (scan.nextLine().equalsIgnoreCase("y"))
+			{
+				System.out.println("What card would you like to play? (Give number)");
+				int value = Integer.parseInt(scan.nextLine());
+				System.out.println("\nGive suit in singular (ex. heart)");
+				String suit = scan.nextLine();
+				card cardP = player.playCard(value, suit); 
+				if(cardP != null && cardP.getSuit().equalsIgnoreCase(pile.getTop().getSuit()) || cardP.getValue() == pile.getTop().getValue()) {
+					pile.addCard(cardP, "");
+					pile.changeTop();
+				}//the above asks the user what card they want to play and plays it 
+				else {
+					System.out.println("You can't do that!!! Your turn is skipped");
+					turn(turnCheck(player), false);
+				}//if entered card is invalid then it skips the players turn  
+			}
+			}
+		}
+		
+		System.out.println("Would you like to end your turn (y or n)?");
+		String endTurn = scan.nextLine();
+		if (endTurn.equalsIgnoreCase("n"))
+		{
+			turn(player, true);
+		}
+		else if (endTurn.equalsIgnoreCase("y"))
+		{
+			turn(turnCheck(player), false);
+		}
+		else 
+		{
+			System.out.println("We assume you mean yes!!");
+			turn(turnCheck(player), false);
+		}
+		//checks if a user is done there turn and either lets then continue or then let's player two go 
+	}
+}
+
+
+/*****************CARD*****************************/
+package crazy8v2;
+
+public class card {
+	private int value = 0; //initializing the value state
+	private String suit = null; //initializing the suit state
+	private String face = null; // initializing the face state
+	private String back = null; //initializing the back state 
+	
+	public card(int value, String suit) {//main constructor 
+		// TODO Auto-generated constructor stub
+		this.value = value; //sets the value state
+		this.suit = suit; //sets the suit state
+		if(suit.equalsIgnoreCase("club")){
+			this.face = ".------.\n|"+ this.value +".--. |\n| :(): |\n| ()() |\n| '--'"+ this.value +"|\n`------'";
+		}else if(suit.equalsIgnoreCase("spade")){
+			this.face = ".------.\n" + "|"+this.value +".--. |\n" + "| :/" + "\": |" + "\n| (__) |\n| '--'"+this.value+"|\n`------'";
+		}else if(suit.equalsIgnoreCase("diamond")){
+			this.face = ".------."+"\n"+"|"+this.value+".--. |"+"\n"+"|"+" :"+"/\": |"+"\n"+"| "+":\"/:"+" |"+"\n"+"| '--'"+this.value+"|"+"\n"+"`------'";
+		}else{
+			this.face = ".------."+"\n"+"|"+this.value+".--. |"+"\n"+"| (\"/) |\n" +"| :\"/: |"+"\n"+"| '--'"+this.value+"|"+"\n"+"`------'";
+		}
+		//the above sets up the face state
+		this.back = ".------."+"\n"+"|Z.--. |"+"\n"+"| :(): |"+"\n"+"| ()() |"+"\n"+"| '--'Z|"+"\n"+"`------'";
+		//the above sets up the back state
+	}
+	
+	int getValue(){// access method for the value
+		return this.value; 
+	}
+	
+	String getSuit(){// access method for the suit
+		return this.suit; 
+	}
+	
+	String printCard(String side){// method to print the card (front or back)
+		if(side.equalsIgnoreCase("f")){
+			return this.face;
+		}else{
+			return this.back;
+		}
+	}
+}
+
+/**************************DECK********************/
+/**
+ * 
+ */
+package crazy8v2;
+import java.util.*;
+
+/**
+ * @author 340760115
+ *
+ */
+public class deck extends ArrayList{//deck extends array list
+	deck deck = null; //sets a deck reference 
+	public deck() {//Constructor that uses the super constructor 
+		// TODO Auto-generated constructor stub
+		super(); //calls the super constructor 
+	}
+	
+	public deck(deck deck){//overloaded constructor 
+		this.deck = deck; //java copy constructor 
+	}
+	
+	void shuffle(){
+		Random rand = new Random(); 
+		for (int i = this.size()-1; i > 0; i--) {
+			int n = rand.nextInt(this.size()) + 0;
+			/*******************
+				polymorphism
+			 *******************/
+			card a = (card) this.get(n); 
+			this.set(n, this.get(i));
+			this.set(i, a); 
+		}
+	}//above shuffles the deck
+	
+	card deal(){
+		/*******************
+			polymorphism
+		 *******************/
+		card card = (crazy8v2.card) this.get(0);
+		this.remove(0);
+		return card; 
+	}//above deals the top card and removes it from the deck
+	
+	void addCard(card card, String loc){
+		this.add(0, card); 
+	}//above added a cards to the deck
+	
+	
+	
+	void fillDeck(){
+		for (int i = 0; i < 4; i++) {
+			for (int j = 1; j <= 13; j++) {
+				if(i == 0){
+					this.add(new card(j, "club"));
+				}else if(i == 1){
+					this.add(new card(j, "spade"));
+				}else if(i == 2){
+					this.add(new card(j, "diamond"));
+				}else{
+					this.add(new card(j, "heart"));
+				}
+			}
+		}
+	}//adds the 52 cards to the deck
+}
+

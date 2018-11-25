@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Zeeshan's Portfolio</title>
+        <!--//////// CSS ///////////-->
+        <!-- Jquery.Scollbar CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.scrollbar/0.2.11/jquery.scrollbar.css">
+        <!-- Materialize Icon -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Iconate CSS-->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/iconate/0.2.7/iconate.min.css">
+        <!-- BootStrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- FullPage CSS -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.css">
+        <!--My CSS-->
+        <link rel="stylesheet" href="sheet.css">
+    </head>
+
+    <body>
+        <div id="navSection">
+            <div class="nav">
+                <ul>
+                    <li><a href="index.php">HOME</a></li>
+                    <li><a href="pri.html">Privacy</a></li>
+                    <li><a href="hea.html">Health and Safety</a></li>
+                    <li><a href="car.html">Careers</a></li>
+                    <li><a href="soc.html">Impact on Society</a></li>
+                    <li><a href="fur.html">Furture of Technology in Society</a></li>
+                    <li><a href="env.html">Computers and the Environment</a></li>
+                    <li><a href="fin.html">Final thoughts</a></li>
+                </ul>
+            </div>
+            <div class="clickable">
+                <i id="triggerDown" class="large material-icons" style="font-size: 45px">arrow_downward</i>
+                <i id="triggerUp" class="large material-icons" style="font-size: 45px">arrow_upward</i>
+                <!--<i id="triggerDown" class="fas fa-angle-double-down fa-5x"></i>
+    					<i id="triggerUp" class="fas fa-angle-double-up fa-5x"></i>-->
+            </div>
+        </div>
+        <div class="container-fluid">
+            <section>
+                <div class="card" style="overflow-y: scroll;">
+                    <h1>Careers</h1>
+                    <div class="article">
+                        <h3>Job: Web Developers</h3>
+                        <h5>description:</h5>
+                        <p>Web developers, also called web designers or webmasters, design and maintain websites. You might design and develop basic website layout or advanced interactive website features. what are the duties of a web developer? your duties are to create attractive and function websites for your clients this includes front-end and backend code. essetental skills? in realation to computer science you need to have a working knowledge in many differnet application and web languages for example</p>
+                        <ol>
+                            <li>html</li>
+                            <li>JavaScript</li>
+                            <li>PHP</li>
+                            <li>Ruby on rails</li>
+                            <li>C++</li>
+                            <li>SQL</li>
+                            <li>Flash</li>
+                            <li>etc.</li>
+                        </ol>
+                        <a href="https://learn.org/articles/What_Does_a_Web_Developer_Do.html">resource #1</a>
+                        <a href="https://www.thebalance.com/top-jobs-for-computer-science-majors-2059634">resource #2</a>
+                        <h3>Post-Secondary Programs:</h3>
+                        <p>
+                        	<a href="http://future.mcmaster.ca/programs/compsci/">McMaster program</a> admission requirements:Program Name: Computer Science I / Computer Science I Co-op Province: Ontario OUAC Code(s): MC - Computer Science I MCC - Computer Science I (Co-op) Degree(s): B.A.Sc. (Bachelor of Applied Science) Co-op / Internship: Students can opt into the co-op stream at any point before their final year. Required Courses: At least six Grade 12 U/M level courses, including: ENG4U MCV4U Two of: SBI4U, SCH4U, SPH4U, SES4U, ICS4U, TEJ4M Anticipated Admission Range - September 2018 (Subject to Change): 90-95% Application Deadline (recommended): January 17, 2018 Admission Decision Timing: February - March, 2018– Applicants presenting a minimum of 3 final or 6 midterm Grade 12 U/M courses will be considered for admission on a rolling basis (applicants must have 6 Grade 12 U/M courses completed or in progress, including program specific requirements). April 2018 - Applicants will be reviewed again upon receipt of second semester midterm grades (offers will go out on a rolling basis as grade data is received, until May 15). Target Enrolment: 50 students 
+                        </p>
+                        <br>
+                        <p>
+                            <a href="https://uwaterloo.ca/future-students/programs/computer-science">Waterloo Program</a> Admission requirements Ontario students: 6 Grade 12 U and/or M courses including Advanced Functions Calculus and Vectors Any Grade 12 U English One other 4U course Recommended: Grade 11 U Introduction to Computer Science Admission averages: Individual selection from the low 90s. Not studying in Ontario? Search our admission requirements database. You're strongly encouraged to write the Euclid Mathematics Contest. First-year courses Students may also select the advanced-stream courses for algebra, calculus and computer science if they meet the requirements.
+                        </p>
+                        <h3>Job Advertisements:</h3>
+                        <p>
+                        	Job 1 -> <a href="https://ca.indeed.com/cmp/Aspen-University/jobs/Contract-Web-Developer-f58686862b530fd8?sjdu=vQIlM60yK_PwYat7ToXhk5Ikz0jqlJMdsRNGK-TNISqv-y8ajN6Kfh6uBRh-vvTT_2auqXz_SwpfdkJDTaeTwTQ2b9Il319ZICwwVIqdchs&tk=1c84mtgpj5196a70&vjs=3">Contract Web Developer</a>:
+                        	your job is to work with a team to develop and deploy web solutions based on the compaines needs.  
+                        </p>
+                        <br>
+                        <p>
+                        	Job 2 -><a href="https://www.workopolis.com/jobsearch/job/18018032?uc=E2&sc=2.0012&sp=1">Front-end Web Developer</a>: toyr job is to develop robust user-friendly web applications integrate thired-party services and platforms and work closly with a team
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!---//// Modal ////-->
+    </body>
+    <!--////////// JS //////////-->
+    <!-- Jquery JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- Jquery.Scollbar JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.scrollbar/0.2.11/jquery.scrollbar.min.js"></script>
+    <!-- BootStrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- FullPage JS -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.js'></script>
+    <!-- Iconate JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iconate/0.2.7/iconate.min.js"></script>
+    <!-- NiceScroll JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+    <!-- Fullpage JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/vendors/jquery.easings.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.3/vendors/scrolloverflow.min.js"></script>
+    <!-- My JS-->
+    <script>
+    function OpenTopicMod(topic) {
+        if (topic == "pri") {
+            $(".modal-title").text("Privacy");
+            $("#mod-bod").text("stuff");
+        } else if (topic == "hea") {
+            $(".modal-title").text("Health and Safety");
+            $("#mod-bod").text("stuff");
+        } else if (topic == "car") {
+            $(".modal-title").text("Career");
+            $("#mod-bod").text("stuff");
+        } else if (topic == "soc") {
+            $(".modal-title").text("Impact on Society");
+            $("#mod-bod").text("stuff");
+        } else if (topic == "fut") {
+            $(".modal-title").text("Future of Technology");
+            $("#mod-bod").text("stuff");
+        } else if (topic == "env") {
+            $(".modal-title").text("Computers and the Environment");
+            $("#mod-bod").text("stuff");
+        } else {
+            $(".modal-title").text("Final Thoughts");
+            $("#mod-bod").text("stuff");
+        }
+        $("#description").modal();
+    }
+
+    $("#triggerDown").click(function() {
+        $(".nav").slideDown(function() {
+            $("#triggerDown").hide();
+            $("#triggerUp").show();
+        });
+    });
+
+    $("#triggerUp").click(function() {
+        $(".nav").slideUp(function() {
+            $("#triggerDown").show();
+            $("#triggerUp").hide();
+        });
+    });
+
+    $(".topic").click(function(e) {
+        console.log(e.target.id);
+        OpenTopicMod(e.target.id);
+    });
+
+    $(document).ready(function() {
+        $(".nav").hide();
+        $("#triggerUp").hide();
+    });
+    </script>
+
+</html>

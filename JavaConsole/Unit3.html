@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Unit 3 Assignment</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="icon" type="icon/jpg" href="root/images/logo.jpg"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="mySidenav" class="sidenav">
+        <p class="first">HOME</p> 
+        <!-- Links -->
+        <a href="">Number Game</a>
+        <a href="">Memory Game</a>
+        <a href="">Tic Tac Toe</a>
+        <a href="">Game 4</a>
+        <hr class="line">
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+    <div id="main">
+      <span id="openNavbtn" style="color: #; font-size:48px;cursor:pointer;position:fixed;z-index:1; transition: .9s" onClick ="openNav()";>&#9758;</span>
+
+      <span id="closeNavbtn" style="color: #; font-size:48px;cursor:pointer;position:fixed;visibility: hidden; transition: .9s" onClick ="closeNav()";>&#9756;</span>
+    <script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        $("#openNavbtn").css("visibility", "hidden").css("transition", ".1s"); 
+        $("#closeNavbtn").css("visibility", "visible").css("transition", ".1s"); 
+    }
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+        document.body.style.backgroundImage = "Images/background.png";
+        $("#closeNavbtn").css("visibility", "hidden"); 
+        $("#openNavbtn").css("visibility", "visible");
+    }
+    </script>
+    <center>
+      <h1>Acarde Game</h1>
+      <h2 id="name">Zeeshan,Vipneet,Gawshan</h2>
+      <hr>
+      <img src="root/images/trophy.jpg">
+      <!-- <p class="sub">The Games</p>
+      <p>
+        The objective of this game it too 
+      </p> -->
+        <hr>
+        <br>
+    </center>
+    </div>
+    <br><br><br><br>
+    <br><br><br><br><br>
+  </body>
+</html>

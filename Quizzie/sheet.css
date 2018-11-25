@@ -1,0 +1,78 @@
+@font-face {
+    font-family: cool;
+    src: url(Boogaloo-Regular.ttf);
+}
+
+#loginBtn{
+	float: right;
+	z-index: 100; 
+	margin-right: 5.5%; 
+}
+
+#titleHolder{
+	text-align: center;
+	font-family: cool; 
+	font-size: 800%;
+}
+
+#title{
+	font-size: 100%; 
+}
+
+#info{
+	font-size: 15%; 
+	background-color: #FBF9CB;
+	border-radius: 6px;
+	text-align: justify;
+}
+
+.card {
+  background: #cf5a51;
+  border-radius: 1.5%;
+  display: inline-block;
+  height: 50%;
+  margin: 1rem;
+  position: relative;
+  width: 60%;
+}
+
+.nicescroll-box{
+	position: absolute;
+	overflow: hidden;
+	height: 50%;
+	display: inline-block;
+	margin: auto;
+	left: 15%; 
+	right: 15%; 
+}
+
+.logo {
+	width: 40%;
+}
+
+.car {
+	width: 50%;
+}
+
+.radioIMG {
+	width: 15%;
+}
+
+.radioLabel {
+	display: inline;
+	padding-left: 20px;
+	vertical-align: middle;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+	color: #313b3e; 
+}
+
+body{
+	background-color: #9ab391; 
+}

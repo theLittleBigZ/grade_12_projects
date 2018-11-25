@@ -1,0 +1,95 @@
+#iart{
+    position: relative;
+    width: 100%;
+    height: 100%; 
+}
+
+#mod-art{
+    height: 70vh; 
+}
+
+#triggerDown{
+    position: fixed;
+    z-index: 10000; 
+    left: 50%; 
+    cursor: pointer;
+}
+
+#triggerUp{
+    position: fixed;
+    z-index: 10000; 
+    left: 49%; 
+    cursor: pointer;
+}
+
+#navSection{
+    position: fixed;
+    width: 100%; 
+}
+
+.container-fluid{
+    overflow: hidden !important;
+}
+
+.btn-default{
+    margin: 1%; 
+}
+
+.article{
+    text-align: left;
+}
+
+.card{
+    position: relative;
+    height: 75%; 
+    width: 85%; 
+    background-color: white; 
+    border-radius: 35px;
+    text-align: center; 
+    padding: 20px; 
+    box-shadow: 2px 16px 8px 3px;
+    top: 15%;
+    margin-right: 7.5%; 
+    margin-left: 7.5%;
+}
+
+body{
+    background-color: #8A87B6;
+}
+
+html{
+    overflow: hidden !important;
+}
+
+section{
+    position: absolute;
+    height: 100vh; 
+    width: 100vw;
+    z-index: -100;  
+}
+
+ul {
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    width: 25%;
+    text-align: center;
+    background-color: #f1f1f1;
+}
+
+li{
+    padding: 5%; 
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+    background-color: #555;
+    color: white;
+}
